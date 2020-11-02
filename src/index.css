@@ -24,6 +24,13 @@ h1, h2, h3, h4, h5, h6 {
   width: fit-content;
   margin: 0;
   font-family: 'Bebas Neue', cursive;
+  font-weight: normal;
+}
+h2{
+  font-size: 42px;
+}
+h3{
+  font-size: 28px;
 }
 p{
   margin: 0;

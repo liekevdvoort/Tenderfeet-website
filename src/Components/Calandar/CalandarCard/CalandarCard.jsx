@@ -16,6 +16,20 @@ function CalandarCard(props) {
     background-color: white;
     margin-right: 40px;
     padding: 20px;
+    h3{
+      color: #F28D2C;
+      margin-bottom: 14px;
+    }
+    p{
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      svg{
+        color: #20394E;
+        margin-right: 10px;
+        font-size:22px;
+      }
+    }
   `;
   return (
     <Card>
