@@ -44,7 +44,7 @@ function TopSlider(props) {
     align-items: center;
     justify-content: center;
     color: white;
-    clip-path: polygon(24% 0, 100% 0, 100% 100%, 0% 100%);    
+    clip-path: polygon(220px 0, 100% 0, 100% 100%, 0% 100%);    
     padding-left: 45px;
   `;
   const Photo = styled.div`
@@ -55,7 +55,7 @@ function TopSlider(props) {
     justify-content: center;
     background-color:blue;
     color: white;
-    clip-path: polygon(24% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(220px 0, 100% 0, 100% 100%, 0% 100%);
   `;
 
   return (

@@ -5,10 +5,13 @@ import '../Variables.scss'
 //import components
 import TopSlider from '../Components/TopSlider'
 import Calandar from '../Components/Calandar/Calandar'
+import News from '../Components/News'
+import Sponsors from '../Components/Sponsors'
+import Footer from '../Components/Footer';
 
 // import fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 function Home() {
   // state
@@ -118,6 +121,9 @@ function Home() {
         <Main>
             <TopSlider teams={teams}/>
             <Calandar programma={programma}/>
+            <News/>
+            <Sponsors/>
+            <Footer/>
         </Main>
         :
         <Loading>laden <FontAwesomeIcon spin icon={faCircleNotch}/></Loading>

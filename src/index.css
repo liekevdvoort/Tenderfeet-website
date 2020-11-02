@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #282828;
 }
 
 code {
@@ -25,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: 'Bebas Neue', cursive;
   font-weight: normal;
+  color: #282828;
 }
 h2{
   font-size: 42px;
