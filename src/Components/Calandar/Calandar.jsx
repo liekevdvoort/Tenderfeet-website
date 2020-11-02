@@ -16,10 +16,21 @@ function TopSlider(props) {
   const Title = styled.h2`
     margin-bottom: 30px;
   `;
+  const CardsWrapper = styled.div`
+    display: flex;
+  `;
   return (
     <Main>
         <Title>AGENDA</Title>
-        <CalandarCard/>
+        <CardsWrapper>
+          {
+            props.programma.map(function(item, i){
+              return(
+                <CalandarCard item={item} key={i}/>
+              )
+            })
+          }
+        </CardsWrapper>
     </Main>
   );
 }
