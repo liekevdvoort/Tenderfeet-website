@@ -126,7 +126,7 @@ function Home() {
             <Footer/>
         </Main>
         :
-        <Loading>laden <FontAwesomeIcon spin icon={faCircleNotch}/></Loading>
+        <Loading>laden <FontAwesomeIcon style={{marginLeft: '15px'}} spin icon={faCircleNotch}/></Loading>
       }
       
     </div>
