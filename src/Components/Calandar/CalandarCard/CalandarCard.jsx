@@ -12,7 +12,6 @@ function CalandarCard(props) {
   // css ___________________________________________________________________
 
   const Card = styled.div`
-    min-width: 250px;
     background-color: white;
     margin-right: 40px;
     padding: 20px;
@@ -27,6 +26,7 @@ function CalandarCard(props) {
       p{
         display: inline-block;
         align-items: center;
+        white-space: nowrap;
         &:first-letter{
           text-transform: uppercase!important;
         }

@@ -20,7 +20,7 @@ function Footer(props) {
     background-color: #20394E;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 60px;
     div{
       grid-column: span 2;
@@ -78,6 +78,7 @@ const Logo = styled.img`
       </div>
       <div>
         <h3>Trainigs tijden</h3>
+
       </div>
     </Main>
   );

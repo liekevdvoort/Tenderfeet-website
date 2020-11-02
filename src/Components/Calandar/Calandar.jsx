@@ -12,6 +12,8 @@ function TopSlider(props) {
     padding: 60px;
     background-color: #EDEFF4;
     width: 100%;
+    max-width: 100vw;
+    overflow-y: auto;
   `;
   const Title = styled.h2`
     margin-bottom: 30px;
