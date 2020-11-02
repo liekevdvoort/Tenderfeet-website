@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components'
 import '../Variables.scss'
 
+import logoImage from '../images/logo.png'
+
 function TopSlider(props) {
  
   // css ___________________________________________________________________
@@ -18,7 +20,22 @@ function TopSlider(props) {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   `;
+  const Top = styled.div`
+    display: flex;
+    align-items: center;
+  `;
+  const Logo = styled.img`
+    margin-right: 20px;
+    height: 140px;
+    width: auto;
+  `;
+  const Title = styled.h2`
+
+  `;
+
+
   const Right = styled.div`
     height: 100vh;
     width: 80vw;
@@ -44,7 +61,11 @@ function TopSlider(props) {
   return (
     <Main>
         <Left>
-        geladen {props.teams[0] && props.teams[0].teamnaam}
+          <Top>
+            <Logo src={logoImage}/>
+            <Title>{props.teams[0] && props.teams[0].teamnaam}</Title>
+          </Top>
+          geladen {props.teams[0] && props.teams[0].teamnaam}
 
         </Left>
         <Right>
