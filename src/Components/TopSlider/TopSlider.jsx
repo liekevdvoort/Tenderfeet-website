@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components'
-import '../Variables.scss'
 
-import logoImage from '../images/logo.png'
-import banner from '../images/banner11.jpg'
+import logoImage from '../../images/logo.png'
+import banner from '../../images/banner11.jpg'
+
+//import components
+import DataBar from './DataBar/Databar'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -88,15 +90,16 @@ function TopSlider(props) {
   `;
   const Logo = styled.img`
     margin-right: 30px;
-    height: 140px;
+    height: 120px;
     width: auto;
   `;
   const Title = styled.h2`
-
+  color: #F28D2C;
   `;
 
   const Text = styled.div`
     max-width: 350px;
+    margin-top: 40px
   `;
   const Right = styled.div`
     height: 100vh;
@@ -119,7 +122,6 @@ function TopSlider(props) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:blue;
     color: white;
     clip-path: polygon(220px 0, 100% 0, 100% 100%, 0% 100%);
   `;
@@ -145,7 +147,7 @@ function TopSlider(props) {
     display: flex;
     position: absolute;
     width: 100%;
-    bottom: 30px;
+    bottom: 40px;
     z-index:1;
     justify-content: center;
     div{
@@ -155,7 +157,7 @@ function TopSlider(props) {
       border-radius:999px;
       background-color: white;
       opacity: 0.5;
-      filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.1));
+      filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.5));
       cursor: pointer;
     }
   `;
@@ -175,30 +177,24 @@ function TopSlider(props) {
             <Title>{teams[index] && teams[index].teamnaam}</Title>
           </Top>
           {/* <p>geladen {props.teams[0] && props.teams[0].teamnaam}</p> */}
-          <div style={{margin: 'auto'}}>
+          <Text>
             {
               teamTexts.map(function(item, i){
                 if(item.teamcode == teams[index].teamcode){
                   return(
-                    <Text key={i} dangerouslySetInnerHTML={{__html: `${item.text}`}} />
+                    <p key={i} dangerouslySetInnerHTML={{__html: `${item.text}`}} />
                   )
                 }
               })
             }
-            {/* {
-              teams.map(function(item, i){
-                return(
-                  <p key={i}>{item.teamnaam}</p>
-                )
-              })
-            } */}
-          </div>
+          </Text>
         </Left>
         <Right>
           <Photo>
 
           </Photo>
         </Right>
+        <DataBar/>
         <LiveDots>
             {
               teams.map(function(item, i){

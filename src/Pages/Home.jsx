@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import '../Variables.scss'
 
 //import components
-import TopSlider from '../Components/TopSlider'
+import TopSlider from '../Components/TopSlider/TopSlider'
 import Calandar from '../Components/Calandar/Calandar'
 import News from '../Components/News'
 import Sponsors from '../Components/Sponsors'
