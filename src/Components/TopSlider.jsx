@@ -141,6 +141,24 @@ function TopSlider(props) {
     z-index:1;
     opacity: 0.8;
   `;
+  const LiveDots = styled.div`
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    z-index:1;
+    justify-content: center;
+    div{
+      height:10px;
+      width: 10px;
+      margin: 0 20px;
+      border-radius:999px;
+      background-color: white;
+      opacity: 0.5;
+      filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.1));
+      cursor: pointer;
+    }
+  `;
 
 
   return (
@@ -181,6 +199,15 @@ function TopSlider(props) {
 
           </Photo>
         </Right>
+        <LiveDots>
+            {
+              teams.map(function(item, i){
+                return(
+                  <div style={index == i ? {opacity: 1} : null} onClick={() => {setIndex(i)}} id={"livedot"+i} key={i}></div>
+                )
+              })
+            }
+        </LiveDots>
     </Main>
   );
 }
