@@ -156,6 +156,15 @@ function TopSlider(props) {
           {/* <p>geladen {props.teams[0] && props.teams[0].teamnaam}</p> */}
           <div style={{margin: 'auto'}}>
             {
+              teamTexts.map(function(item, i){
+                if(item.teamcode == teams[index].teamcode){
+                  return(
+                    <p key={i}>{item.text}</p>
+                  )
+                }
+              })
+            }
+            {
               teams.map(function(item, i){
                 return(
                   <p key={i}>{item.teamnaam}</p>
