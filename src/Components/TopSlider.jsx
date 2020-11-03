@@ -19,22 +19,22 @@ function TopSlider(props) {
     {
       teamnaam: 'Tenderfeet MSE 1',
       teamcode: 12,
-      text: 'lorem ipsum mse1'
+      text: 'MSE 1 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     },
     {
       teamnaam: 'Tenderfeet VSE 1',
       teamcode: 538,
-      text: 'lorem ipsum vse1'
+      text: 'VSE 1 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     },
     {
       teamnaam: 'G-Team',
       teamcode: 27,
-      text: 'lorem ipsum g team'
+      text: 'G-Team Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     },
     {
       teamnaam: 'Heren recreanten',
       teamcode: 18,
-      text: 'lorem ipsum heren recreanten'
+      text: 'Heren Recreanten Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     }
   ]
 
@@ -95,6 +95,9 @@ function TopSlider(props) {
 
   `;
 
+  const Text = styled.div`
+    max-width: 350px;
+  `;
   const Right = styled.div`
     height: 100vh;
     width: 80vw;
@@ -159,18 +162,18 @@ function TopSlider(props) {
               teamTexts.map(function(item, i){
                 if(item.teamcode == teams[index].teamcode){
                   return(
-                    <p key={i}>{item.text}</p>
+                    <Text key={i} dangerouslySetInnerHTML={{__html: `${item.text}`}} />
                   )
                 }
               })
             }
-            {
+            {/* {
               teams.map(function(item, i){
                 return(
                   <p key={i}>{item.teamnaam}</p>
                 )
               })
-            }
+            } */}
           </div>
         </Left>
         <Right>
