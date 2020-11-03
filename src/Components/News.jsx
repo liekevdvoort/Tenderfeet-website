@@ -21,7 +21,7 @@ function News(props) {
 
   return (
     <Main>
-      <h2>Nieuws en wedstrijdverslagen</h2>
+      <h2>Nieuws &#38; wedstrijdverslagen</h2>
     </Main>
   );
 }

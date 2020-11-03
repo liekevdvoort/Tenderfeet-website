@@ -14,7 +14,8 @@ function CalandarCard(props) {
   const Card = styled.div`
     background-color: white;
     margin-right: 40px;
-    padding: 20px;
+    padding: 20px;    
+    filter: drop-shadow(0 0mm 2mm rgb(0, 0, 0, 0.10));
     h3{
       color: #F28D2C;
       margin-bottom: 4px;

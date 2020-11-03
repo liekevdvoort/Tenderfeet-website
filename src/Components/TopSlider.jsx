@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components'
 import '../Variables.scss'
 
 import logoImage from '../images/logo.png'
+import banner from '../images/banner11.jpg'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -73,7 +75,7 @@ function TopSlider(props) {
   `;
   const Left = styled.div`
     height: 100vh;
-    width: 50vw;
+    width: 40vw;
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -105,6 +107,10 @@ function TopSlider(props) {
     padding-left: 45px;
   `;
   const Photo = styled.div`
+    background-image: url(${banner});
+    background-size: cover;
+    background-position: center;
+
     height: 100vh;
     width:100%;
     display: flex;
