@@ -3,8 +3,40 @@ import styled, { css } from 'styled-components'
 import '../Variables.scss'
 
 import logoImage from '../images/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 function TopSlider(props) {
+
+  // state
+  const [teams, setTeams] = useState([ {teamnaam:'Tenderfeet MSE 1'}, {teamnaam:'Heren recreanten'}, {teamnaam:'G-Team'}]);
+  const [index, setIndex] = useState(0);
+
+  
+  //component did mount
+  useEffect(() => {
+    setTeams(teams => [props.teams[0], ...teams])
+    console.log(teams)
+  }, [])
+
+  function indexUp(){
+    if(index >= teams.length-1){
+      setIndex(0)
+    }
+    else{
+      setIndex(index + 1)
+    }
+    console.log(teams)
+  }
+
+  function indexDown(){
+    if(index <= 0){
+      setIndex(teams.length-1)
+    }
+    else{
+      setIndex(index - 1)
+    }
+  }
  
   // css ___________________________________________________________________
 
@@ -60,13 +92,21 @@ function TopSlider(props) {
 
   return (
     <Main>
+        <FontAwesomeIcon onClick={indexDown} icon={faChevronLeft}/>
+        <FontAwesomeIcon onClick={indexUp} icon={faChevronRight}/>
         <Left>
           <Top>
             <Logo src={logoImage}/>
-            <Title>{props.teams[0] && props.teams[0].teamnaam}</Title>
+            <Title>{teams[index] && teams[index].teamnaam}</Title>
           </Top>
-          geladen {props.teams[0] && props.teams[0].teamnaam}
-
+          {/* <p>geladen {props.teams[0] && props.teams[0].teamnaam}</p> */}
+          {
+            teams.map(function(item, i){
+              return(
+                <p key={i}>{item.teamnaam}</p>
+              )
+            })
+          }
         </Left>
         <Right>
           <Photo>

@@ -8,7 +8,6 @@ function Sponsors(props) {
   // css ___________________________________________________________________
 
   const Main = styled.div`
-    height: 500px;
     padding: 60px;
     /* display: flex;
     align-items: center;
