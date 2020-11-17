@@ -1,4 +1,4 @@
-import { faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faBasketballBall, faListOl, faTrophy, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components'
@@ -22,9 +22,11 @@ const Main = styled.div`
 const Bottom = styled.div `
   display: flex;
   margin-top: 5px;
+  align-items: center;
   svg{
       color: #F28D2C;
       margin-right: 15px;
+      font-size: 20px;
   }
 `;
 const Wrapper = styled.div `
@@ -42,7 +44,7 @@ function DataBar(props) {
         <Wrapper>
             <h4>Wedstrijden</h4>
             <Bottom>
-                <FontAwesomeIcon icon={faTrophy}/>
+                <FontAwesomeIcon icon={faBasketballBall}/>
                 <p>13</p>
             </Bottom>
         </Wrapper>
@@ -50,7 +52,7 @@ function DataBar(props) {
         <Wrapper>
             <h4>Doelpunten</h4>
             <Bottom>
-                <FontAwesomeIcon icon={faTrophy}/>
+                <FontAwesomeIcon icon={faBasketballBall}/>
                 <p>13</p>
             </Bottom>
         </Wrapper>
@@ -66,7 +68,7 @@ function DataBar(props) {
         <Wrapper>
             <h4>Stand</h4>
             <Bottom>
-                <FontAwesomeIcon icon={faTrophy}/>
+                <FontAwesomeIcon icon={faUsers}/>
                 <p>13</p>
             </Bottom>
         </Wrapper>
@@ -74,7 +76,7 @@ function DataBar(props) {
         <Wrapper>
             <h4>Wedstrijden</h4>
             <Bottom>
-                <FontAwesomeIcon icon={faTrophy}/>
+                <FontAwesomeIcon icon={faListOl}/>
                 <p>13</p>
             </Bottom>
         </Wrapper>
