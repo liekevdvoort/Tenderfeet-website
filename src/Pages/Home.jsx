@@ -107,9 +107,8 @@ console.log(teams, pouleStand, 'teams in home')
     <div className="Home">
       { isLoaded ?
         <Main>
-             {/* <TopSlider teams={teams}/> */}
-             {/*
-            <Calandar programma={programma}/> */}
+             <TopSlider teams={teams}/>
+            <Calandar programma={programma}/>
             <News/>
             <Sponsors/>
             <Footer/>

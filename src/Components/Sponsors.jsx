@@ -14,6 +14,7 @@ function Sponsors(props) {
     justify-content: center; */
     background-color: #EDEFF4;
     h2{
+      margin-bottom: 30px;
     }
   `;
 

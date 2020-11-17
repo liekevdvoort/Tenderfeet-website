@@ -182,10 +182,10 @@ function TopSlider(props) {
           {/* <p>geladen {props.teams[0] && props.teams[0].teamnaam}</p> */}
           <Text>
             {
-              teamTexts.map(function(item, i){
-                if(item.teamcode == teams[index].teamcode){
+              teams.map(function(item, i){
+                if(item?.teamcode == teamTexts[index].teamcode){
                   return(
-                    <p key={i} dangerouslySetInnerHTML={{__html: `${item.text}`}} />
+                    <p key={i} dangerouslySetInnerHTML={{__html: `${teamTexts[index].text}`}} />
                   )
                 }
               })

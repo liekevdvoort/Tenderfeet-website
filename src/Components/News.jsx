@@ -8,7 +8,6 @@ function News(props) {
   // css ___________________________________________________________________
 
   const Main = styled.div`
-    height: 500px;
     padding: 60px;
     /* display: flex;
     align-items: center;
@@ -16,12 +15,20 @@ function News(props) {
     background-color: #20394E;
     h2{
       color: white;
+      margin-bottom: 30px;
+    }
+    p{
+      color: white;
     }
   `;
 
   return (
     <Main>
       <h2>Nieuws &#38; wedstrijdverslagen</h2>
+      
+      <p>
+        Er is geen nieuws.
+      </p>
     </Main>
   );
 }
