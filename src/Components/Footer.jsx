@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components'
+import React from 'react';
+import styled from 'styled-components'
 import '../Variables.scss'
 
 
@@ -7,57 +7,57 @@ import logoImage from '../images/logo.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-
-function Footer(props) {
  
-  // css ___________________________________________________________________
+// css ___________________________________________________________________
 
-  const Main = styled.div`
-    padding: 60px;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    background-color: #20394E;
+const Main = styled.div`
+  padding: 60px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background-color: #20394E;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 60px;
-    div{
-      grid-column: span 2;
-      h3{
-        color: white;
-        margin-bottom: 10px;
-      }
-      a{
-        text-decoration: none;
-      }
-      p{
-        color: white;
-        margin-bottom: 10px;
-      }
-      svg{
-        color: white;
-        font-size: 25px;
-        margin-right: 15px;
-        opacity: 0.8;
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
-        &:hover{
-          opacity: 1;
-        }
-      }
-      &:last-child{
-        grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 60px;
+  div{
+    grid-column: span 2;
+    h3{
+      color: white;
+      margin-bottom: 10px;
+    }
+    a{
+      text-decoration: none;
+    }
+    p{
+      color: white;
+      margin-bottom: 10px;
+    }
+    svg{
+      color: white;
+      font-size: 25px;
+      margin-right: 15px;
+      opacity: 0.8;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      &:hover{
+        opacity: 1;
       }
     }
-  `;
-const Logo = styled.img`
-  align-self: center;
-  justify-self: center;
-  height: 120px;
-  width: auto;
-  grid-column: span 2;
+    &:last-child{
+      grid-column: span 3;
+    }
+  }
 `;
+const Logo = styled.img`
+align-self: center;
+justify-self: center;
+height: 120px;
+width: auto;
+grid-column: span 2;
+`;
+
+function Footer(props) {
 
   return (
     <Main>
@@ -66,8 +66,8 @@ const Logo = styled.img`
         <h3>Contact</h3>
         <a href='tel:0645343221'><p>Telefoon: 06 453 432 21</p></a>
         <a href='mailto:tenderfeet.info.nl'><p>E-mail: tenderfeet.info.nl</p></a>
-        <a href='https://www.facebook.com/BCtenderfeet' target='_blank'><FontAwesomeIcon icon={faFacebook}/></a>
-        <a href='https://www.instagram.com/tenderfeetbasketbal/' target='_blank'><FontAwesomeIcon icon={faInstagram}/></a>
+        <a href='https://www.facebook.com/BCtenderfeet' rel="noopener noreferrer" target='_blank'><FontAwesomeIcon icon={faFacebook}/></a>
+        <a href='https://www.instagram.com/tenderfeetbasketbal/' rel="noopener noreferrer" target='_blank'><FontAwesomeIcon icon={faInstagram}/></a>
       </div>
       <div>
         <h3>Locatie</h3>

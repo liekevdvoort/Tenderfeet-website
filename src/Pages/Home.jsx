@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import '../Variables.scss'
 
 //import components
@@ -13,9 +13,29 @@ import Footer from '../Components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
+
+
+
+  // css ___________________________________________________________________
+
+  const Loading = styled.div`
+    height: 100vh;
+    width: 100vw;
+    background-color:#20394E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  `;
+
+  const Main = styled.div`
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+  `;
+
 function Home() {
   // state
-  const [data, setData] = useState([]);
   const [pouleStand, setPouleStand] = useState({})
   const [teams, setTeams] = useState({})
   const [teamIndeling, setTeamIndeling] = useState({})
@@ -43,6 +63,7 @@ function Home() {
     Promise.all(requests)
       .then(responses => responses.forEach((response, index) => {
         switch (index) {
+          //TEAMINDELING
           case 0:
             response.json()
             .then(json => {
@@ -50,6 +71,7 @@ function Home() {
               console.log('teamindeling', json);
             });
             break;
+          //POULESTAND
           case 1:
             response.json()
             .then(json => {
@@ -57,6 +79,7 @@ function Home() {
               console.log('poulestand', json);
             });
           break;
+          //TEAMS
           case 2:
             response.json()
             .then(json => {
@@ -64,6 +87,7 @@ function Home() {
               console.log('teams', json);
             });
             break;
+          //PROGRAMMA
           case 3:
             response.json()
             .then(json => {
@@ -71,8 +95,6 @@ function Home() {
               console.log('programma', json);
             });
             break;
-              
-        
           default:
             break;
         }
@@ -82,26 +104,6 @@ function Home() {
 
   }, [])
 
-
-  // css ___________________________________________________________________
-
-  const Loading = styled.div`
-    height: 100vh;
-    width: 100vw;
-    background-color:#20394E;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  `;
-
-  const Main = styled.div`
-    max-width: 100vw;
-    display: flex;
-    flex-direction: column;
-  `;
-
-console.log(teams, pouleStand, 'teams in home')
 
   return (
     <div className="Home">
