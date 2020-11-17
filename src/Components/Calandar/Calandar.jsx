@@ -25,13 +25,13 @@ function TopSlider(props) {
     <Main>
         <Title>AGENDA</Title>
         <CardsWrapper>
-          {
+          {/* { 
             props.programma.map(function(item, i){
               return(
                 <CalandarCard item={item} key={i}/>
               )
             })
-          }
+          } */}
         </CardsWrapper>
     </Main>
   );

@@ -13,8 +13,8 @@ function DataBar(props) {
     padding: 10px 15px;
     background-color: white;
     margin: 20px;
-    width: 100%;
-    max-width: calc(100vw - 200px);
+    max-width: 1600px;
+    width: calc(100vw - 200px);
     filter: drop-shadow(0 0mm 2mm rgb(0, 0, 0, 0.10));
 
     display: flex;

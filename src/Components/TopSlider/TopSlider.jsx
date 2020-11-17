@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import logoImage from '../../images/logo.png'
 import banner from '../../images/banner11.jpg'
@@ -43,9 +43,12 @@ function TopSlider(props) {
   
   //component did mount
   useEffect(() => {
-    setTeams(teams => [props.teams[0], ...teams])
-    console.log(teams)
+    if(teams && teams.length >= 0){
+      setTeams(teams => [props.teams[0], ...teams])
+    }
   }, [])
+
+
 
   function indexUp(){
     if(index >= teams.length-1){
@@ -94,12 +97,12 @@ function TopSlider(props) {
     width: auto;
   `;
   const Title = styled.h2`
-  color: #F28D2C;
+    color: #F28D2C;
   `;
 
   const Text = styled.div`
     max-width: 350px;
-    margin-top: 40px
+    margin-top: 40px;
   `;
   const Right = styled.div`
     height: 100vh;

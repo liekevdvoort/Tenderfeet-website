@@ -25,77 +25,63 @@ function Home() {
   //component did mount
   useEffect(() => {
 
-    // api calls ___________________________________________________________________
+    let urls = [
+      //TEAMINDELING
+      'https://data.sportlink.com/team-indeling?teamcode=538&lokaleteamcode=-1&teampersoonrol=ALLES&toonlidfoto=NEE&client_id=NpkhwpTnoe',
+      //POULESTAND
+      'https://data.sportlink.com/poulestand?poulecode=3706&gebruiklokaleteamgegevens=NEE&client_id=NpkhwpTnoe',
+      //TEAMS
+      'https://data.sportlink.com/teams?client_id=NpkhwpTnoe',
+      //PROGRAMMA
+      'https://data.sportlink.com/programma?gebruiklokaleteamgegevens=NEE&eigenwedstrijden=JA&thuis=JA&uit=JA&client_id=NpkhwpTnoe',
+    ];
     
-    // fetch('https://data.sportlink.com/pouleuitslagen?client_id=NpkhwpTnoe')
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     setIsLoaded(true);
-    //     setData(json);
-    //     console.log('pouleUitslagen', json);
-    //   });
-
-    //   fetch('https://data.sportlink.com/pouleuitslagen?poulecode=3706&gebruiklokaleteamgegevens=NEE&client_id=NpkhwpTnoe')
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     setIsLoaded(true);
-    //     setData(json);
-    //     console.log(json);
-    //   });
-
-     // fetch('https://data.sportlink.com/team-gegevens?teamcode=538&lokaleteamcode=-1&client_id=NpkhwpTnoe')
-     // .then(res => res.json())
-     // .then(json => {
-     //   setIsLoaded(true);
-     //   setData(json);
-     //   console.log(json);
-     // });
-
-    // PROGRAMMA
-    fetch('https://data.sportlink.com/programma?gebruiklokaleteamgegevens=NEE&eigenwedstrijden=JA&thuis=JA&uit=JA&client_id=NpkhwpTnoe')
-    .then(res => res.json())
-    .then(json => {
-      setProgramma(json);
-      console.log('programma', json);
-    });
-
-    //TEAMS
-    fetch('https://data.sportlink.com/teams?client_id=NpkhwpTnoe')
-    .then(res => res.json())
-    .then(json => {
-      setTeams(json);
-      console.log('teams', json);
-    });
-
-    // POULESTAND
-    fetch('https://data.sportlink.com/poulestand?poulecode=3706&gebruiklokaleteamgegevens=NEE&client_id=NpkhwpTnoe')
-    .then(res => res.json())
-    .then(json => {
-      setPouleStand(json);
-      console.log('pouleStand', json);
-    });
-
-    // TEAM INDELING
-    fetch('https://data.sportlink.com/team-indeling?teamcode=538&lokaleteamcode=-1&teampersoonrol=ALLES&toonlidfoto=NEE&client_id=NpkhwpTnoe')
-    .then(res => res.json())
-    .then(json => {
-      setIsLoaded(true);
-      setTeamIndeling(json);
-      console.log('teamIndeling', json);
-    });
-
-    // api call sportlink list
-    // fetch('https://data.sportlink.com/list?client_id=NpkhwpTnoe')
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     setIsLoaded(true);
-    //     setData(json);
-    //     console.log(json);
-    //   });
-
-    //   console.log(data, isLoaded)
+    // map every url to the promise of the fetch
+    let requests = urls.map(url => fetch(url));
+    
+    // Promise.all waits until all jobs are resolved
+    Promise.all(requests)
+      .then(responses => responses.forEach((response, index) => {
+        switch (index) {
+          case 0:
+            response.json()
+            .then(json => {
+              setTeamIndeling(json);
+              console.log('teamindeling', json);
+            });
+            break;
+          case 1:
+            response.json()
+            .then(json => {
+              setPouleStand(json);
+              console.log('poulestand', json);
+            });
+          break;
+          case 2:
+            response.json()
+            .then(json => {
+              setTeams(json);
+              console.log('teams', json);
+            });
+            break;
+          case 3:
+            response.json()
+            .then(json => {
+              setProgramma(json);
+              console.log('programma', json);
+            });
+            break;
+              
+        
+          default:
+            break;
+        }
+       }
+      ));
+      setIsLoaded(true)
 
   }, [])
+
 
   // css ___________________________________________________________________
 
@@ -115,12 +101,15 @@ function Home() {
     flex-direction: column;
   `;
 
+console.log(teams, pouleStand, 'teams in home')
+
   return (
     <div className="Home">
       { isLoaded ?
         <Main>
-            <TopSlider teams={teams}/>
-            <Calandar programma={programma}/>
+             {/* <TopSlider teams={teams}/> */}
+             {/*
+            <Calandar programma={programma}/> */}
             <News/>
             <Sponsors/>
             <Footer/>
