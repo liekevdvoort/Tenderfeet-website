@@ -6,7 +6,7 @@ import '../Variables.scss'
 import TopSlider from '../Components/TopSlider/TopSlider'
 import Calandar from '../Components/Calandar/Calandar'
 import News from '../Components/News'
-import Sponsors from '../Components/Sponsors'
+import Sponsors from '../Components/Sponsors/Sponsors'
 import Footer from '../Components/Footer';
 
 // import fontawesome
