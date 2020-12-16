@@ -59,11 +59,12 @@ const Main = styled.div`
   }
 `;
 const Logo = styled.img`
-align-self: center;
-justify-self: center;
-height: 120px;
-width: auto;
-grid-column: span 2;
+  align-self: center;
+  justify-self: center;
+  height: 120px;
+  width: auto;
+  grid-column: span 2;
+  filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.3));
 `;
 
 function Footer(props) {
