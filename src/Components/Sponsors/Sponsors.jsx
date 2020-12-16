@@ -18,7 +18,13 @@ const Main = styled.div`
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media screen and (max-width: 1000px){
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 500px){
+    grid-template-columns: 1fr;
+  }
   gap: 60px;
   a{
     height: 200px;

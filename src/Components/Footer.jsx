@@ -24,7 +24,7 @@ const Main = styled.div`
     grid-column: span 2;
     h3{
       color: white;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
     a{
       text-decoration: none;
@@ -46,6 +46,15 @@ const Main = styled.div`
     }
     &:last-child{
       grid-column: span 3;
+      div{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 25px;
+        p{
+          margin: 0;
+        }
+      }
     }
   }
 `;
@@ -78,7 +87,24 @@ function Footer(props) {
       </div>
       <div>
         <h3>Trainigs tijden</h3>
+        <div>
+          <p>Heren 1</p>
+          <p>Dinsdag</p>
+          <p>20:30/22:00</p>
 
+          <p></p>
+          <p>Donderdag</p>
+          <p>20:00/21:00</p>
+        </div>
+        <div>
+            <p>Dames 1</p>
+            <p>Dinsdag</p>
+            <p>19:00/20:30</p>
+
+            <p></p>
+            <p>Donderdag</p>
+            <p>19:00/20:00</p>
+          </div>
       </div>
     </Main>
   );
