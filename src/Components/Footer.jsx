@@ -11,7 +11,7 @@ import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 // css ___________________________________________________________________
 
 const Main = styled.div`
-  padding: 60px;
+  padding: 60px 60px 35px 60px;
   /* display: flex;
   align-items: center;
   justify-content: center; */
@@ -59,6 +59,7 @@ const Main = styled.div`
   }
 `;
 const Logo = styled.img`
+  margin-bottom: 25px;
   align-self: center;
   justify-self: center;
   height: 120px;
