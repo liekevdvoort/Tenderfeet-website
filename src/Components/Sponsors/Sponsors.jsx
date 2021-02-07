@@ -19,6 +19,7 @@ const Main = styled.div`
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
   @media screen and (max-width: 1000px){
     grid-template-columns: 1fr 1fr;
   }
@@ -30,6 +31,7 @@ const Wrapper = styled.div`
     height: 200px;
     width: 100%;
     padding: 10px;
+    max-width: 300px;
 
     display: flex;
     justify-content: center;

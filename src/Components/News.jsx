@@ -26,7 +26,7 @@ function News(props) {
       <h2>Nieuws &#38; wedstrijdverslagen</h2>
       
       <p>
-        Er is geen nieuws.
+        Er is momenteel geen nieuws.
       </p>
     </Main>
   );

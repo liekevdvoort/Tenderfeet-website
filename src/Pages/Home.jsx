@@ -48,10 +48,10 @@ function Home() {
     let urls = [
       //TEAMINDELING
       'https://data.sportlink.com/team-indeling?teamcode=538&lokaleteamcode=-1&teampersoonrol=ALLES&toonlidfoto=NEE&client_id=NpkhwpTnoe',
-      //POULESTAND
+      //POULESTAND dames
       'https://data.sportlink.com/poulestand?poulecode=3706&gebruiklokaleteamgegevens=NEE&client_id=NpkhwpTnoe',
       //TEAMS
-      'https://data.sportlink.com/teams?client_id=NpkhwpTnoe',
+      'https://data.sportlink.com/teams?gebruiklokaleteamgegevens=JA&client_id=NpkhwpTnoe',
       //PROGRAMMA
       'https://data.sportlink.com/programma?gebruiklokaleteamgegevens=NEE&eigenwedstrijden=JA&thuis=JA&uit=JA&client_id=NpkhwpTnoe',
     ];
@@ -63,7 +63,7 @@ function Home() {
     Promise.all(requests)
       .then(responses => responses.forEach((response, index) => {
         switch (index) {
-          //TEAMINDELING
+          //TEAMINDELING dames
           case 0:
             response.json()
             .then(json => {
@@ -71,7 +71,7 @@ function Home() {
               console.log('teamindeling', json);
             });
             break;
-          //POULESTAND
+          //POULESTAND dames
           case 1:
             response.json()
             .then(json => {
@@ -85,6 +85,7 @@ function Home() {
             .then(json => {
               setTeams(json);
               console.log('teams', json);
+              console.log('teamsstate', teams);
             });
             break;
           //PROGRAMMA
@@ -104,12 +105,13 @@ function Home() {
 
   }, [])
 
+  console.log('teamsstateboven return', teams);
 
   return (
     <div className="Home">
       { isLoaded ?
         <Main>
-             <TopSlider teams={teams}/>
+            <TopSlider pouleStand={pouleStand} teams={teams}/>
             <Calandar programma={programma}/>
             <News/>
             <Sponsors/>

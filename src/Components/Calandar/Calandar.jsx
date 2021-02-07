@@ -33,7 +33,7 @@ function TopSlider(props) {
             })
             :
             <p>
-              Er staat niets op de agenda
+              Er staat momenteel niets op de agenda
             </p>
           }
         </CardsWrapper>

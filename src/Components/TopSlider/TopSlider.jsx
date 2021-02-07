@@ -108,15 +108,10 @@ const LiveDots = styled.div`
 
 function TopSlider(props) {
 
-  // state
-  const [teams, setTeams] = useState([ {teamnaam:'Tenderfeet MSE 1', teamcode:12}, {teamnaam:'Heren recreanten', teamcode:18}, {teamnaam:'G-Team', teamcode:27}]);
-  const [index, setIndex] = useState(0);
-
   // team texten
   const teamTexts = [
     {
       teamnaam: 'Tenderfeet MSE 1',
-      teamcode: 12,
       text: 'MSE 1 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     },
     {
@@ -126,28 +121,30 @@ function TopSlider(props) {
     },
     {
       teamnaam: 'G-Team',
-      teamcode: 27,
       text: 'G-Team Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     },
     {
       teamnaam: 'Heren recreanten',
-      teamcode: 18,
       text: 'Heren Recreanten Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br></br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.<br></br> Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,<br></br> rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
     }
   ]
+  // state
+  const [teams, setTeams] = useState(teamTexts);
+  const [index, setIndex] = useState(0);
+
 
   
-  //component did mount
-  useEffect(() => {
-    if(teams && teams.length >= 0){
-      setTeams(teams => [props.teams[0], ...teams])
-    }
-  }, [])
+  // //component did mount
+  // useEffect(() => {
+  //   if(teams && teams.length >= 0){
+  //     setTeams(teams => [props.teams[0], ...teams])
+  //   }
+  // }, [])
 
 
 
   function indexUp(){
-    if(index >= teams.length-1){
+    if(index >= teamTexts.length-1){
       setIndex(0)
     }
     else{
@@ -157,12 +154,13 @@ function TopSlider(props) {
 
   function indexDown(){
     if(index <= 0){
-      setIndex(teams.length-1)
+      setIndex(teamTexts.length-1)
     }
     else{
       setIndex(index - 1)
     }
   }
+  console.log(index,'index')
 
 
   return (
@@ -176,19 +174,20 @@ function TopSlider(props) {
         <Left>
           <Top>
             <Logo src={logoImage}/>
-            <Title>{teams[index] && teams[index].teamnaam}</Title>
+            <Title>{teamTexts[index]?.teamnaam}</Title>
           </Top>
           {/* <p>geladen {props.teams[0] && props.teams[0].teamnaam}</p> */}
           <Text>
-            {
+            {/* {
               teams.map(function(item, i){
-                if(item?.teamcode === teamTexts[index].teamcode){
+                if(teams && teams[index]?.text){
                   return(
-                    <p key={i} dangerouslySetInnerHTML={{__html: `${teamTexts[index].text}`}} />
+                    <p key={i} dangerouslySetInnerHTML={{__html: `${item.text}`}} />
                   )
                 }
               })
-            }
+            } */}
+            <p dangerouslySetInnerHTML={{__html: `${teamTexts[index]?.text}`}} />
           </Text>
         </Left>
         <Right>
@@ -196,10 +195,16 @@ function TopSlider(props) {
 
           </Photo>
         </Right>
-        <DataBar/>
+        {  props.teams && props.teams.length > 0 && props.teams.map(function(item, i){
+          console.log(item.teamcode)
+          if(teamTexts[index]?.teamcode){
+            return <DataBar pouleStand={props.pouleStand} team={teams[index]}/>
+          }
+        })
+        }
         <LiveDots>
             {
-              teams.map(function(item, i){
+              teamTexts.map(function(item, i){
                 return(
                   <div style={index === i ? {opacity: 1} : null} onClick={() => {setIndex(i)}} id={"livedot"+i} key={i}></div>
                 )

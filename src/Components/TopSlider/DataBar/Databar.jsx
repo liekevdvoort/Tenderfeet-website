@@ -1,6 +1,7 @@
 import { faBasketballBall, faListOl, faTrophy, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Fragment } from 'react';
 import styled from 'styled-components'
  
 // css ___________________________________________________________________
@@ -39,13 +40,19 @@ const Wrapper = styled.div `
 
 function DataBar(props) {
 
+    console.log(props.pouleStand, 'test')
   return (
     <Main>
+        { props.pouleStand && props.pouleStand.length > 0 && props.pouleStand.map(function(item, i){
+            if(item.teamnaam.includes('Tenderfeet')){
+                console.log('gevonden')
+                return (
+                    <Fragment>
         <Wrapper>
             <h4>Wedstrijden</h4>
             <Bottom>
                 <FontAwesomeIcon icon={faBasketballBall}/>
-                <p>13</p>
+                <p>{item.gespeeldewedstrijden && item.gespeeldewedstrijden}</p>
             </Bottom>
         </Wrapper>
         
@@ -53,7 +60,7 @@ function DataBar(props) {
             <h4>Doelpunten</h4>
             <Bottom>
                 <FontAwesomeIcon icon={faBasketballBall}/>
-                <p>13</p>
+                <p>{item.doelpuntenvoor && item.doelpuntenvoor}</p>
             </Bottom>
         </Wrapper>
 
@@ -61,25 +68,29 @@ function DataBar(props) {
             <h4>Gewonnen</h4>
             <Bottom>
                 <FontAwesomeIcon icon={faTrophy}/>
-                <p>13</p>
+                <p>{item.gewonnen && item.gewonnen}</p>
             </Bottom>
         </Wrapper>
+
+        {/* <Wrapper>
+            <h4>Spelers</h4>
+            <Bottom>
+                <FontAwesomeIcon icon={faUsers}/>
+                <p>{item.positie && item.positie}</p>
+            </Bottom>
+        </Wrapper> */}
 
         <Wrapper>
             <h4>Stand</h4>
             <Bottom>
-                <FontAwesomeIcon icon={faUsers}/>
-                <p>13</p>
-            </Bottom>
-        </Wrapper>
-
-        <Wrapper>
-            <h4>Wedstrijden</h4>
-            <Bottom>
                 <FontAwesomeIcon icon={faListOl}/>
-                <p>13</p>
+                <p>{item.positie && item.positie}</p>
             </Bottom>
-        </Wrapper>
+        </Wrapper></Fragment>
+                )
+            }
+            })
+        }
     </Main>
   );
 }
